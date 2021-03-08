@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:indie/Models/user.dart';
 import 'package:indie/Widgets/app_bar.dart';
 
 class HomePage extends StatelessWidget {

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:indie/API/network_config.dart';
+import 'package:indie/Home/home_page.dart';
+import 'package:indie/Models/user.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String loginRoute = '/login';
@@ -54,7 +57,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     border: InputBorder.none, hintText: "Password"),
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await NetworkConfig().login(_email.text, _password.text);
+                  Navigator.of(context).pushNamedAndRemoveUntil(HomePage.homeRoute, (route) => false);
+                },
                 child: Text("Login"),
               )
             ],
